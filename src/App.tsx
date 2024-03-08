@@ -4,6 +4,7 @@ import { ComplexSearchResults } from "./models/recipes/complexSearch";
 import { FoodList } from "./components/FoodList";
 import Nav from "./components/Nav";
 import "./App.css";
+import Container from "./components/Container";
 function App() {
   const [foodData, setFoodData] = useState<ComplexSearchResults[]>([]);
 
@@ -11,7 +12,11 @@ function App() {
     <>
       <Nav />
       <Search foodData={foodData} setFoodData={setFoodData} />
-      <FoodList foodData={foodData} />
+      {/*Passing the food list component as 
+      a child to the container component  */}
+      <Container>
+        <FoodList foodData={foodData} />
+      </Container>
     </>
   );
 }
