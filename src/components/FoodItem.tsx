@@ -6,10 +6,6 @@ interface IFoodItemProps {
   setRecipeId: React.Dispatch<React.SetStateAction<number>>;
 }
 export default function FoodItem({ food, setRecipeId }: IFoodItemProps) {
-  function getRecipe(id: number) {
-    console.log(`From Food Item ${id}`);
-    setRecipeId(id);
-  }
   return (
     <div className={styles.itemContainer}>
       <img className={styles.itemImage} src={food.image} />
@@ -19,7 +15,7 @@ export default function FoodItem({ food, setRecipeId }: IFoodItemProps) {
       <div className={styles.buttonContainer}>
         <button
           className={styles.itemButton}
-          onClick={() => getRecipe(food.id)}
+          onClick={() => setRecipeId(food.id)}
         >
           View Recipe
         </button>
