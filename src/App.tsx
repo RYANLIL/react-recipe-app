@@ -9,6 +9,7 @@ import InnerContainer from "./components/InnerContainer";
 import FoodDetails from "./components/FoodDetails";
 function App() {
   const [foodData, setFoodData] = useState<ComplexSearchResults[]>([]);
+  const [recipeId, setRecipeId] = useState<number>(-1);
 
   return (
     <>
@@ -18,10 +19,10 @@ function App() {
       a child to the container component  */}
       <Container>
         <InnerContainer>
-          <FoodList foodData={foodData} />
+          <FoodList foodData={foodData} setRecipeId={setRecipeId} />
         </InnerContainer>
         <InnerContainer>
-          <FoodDetails />
+          <FoodDetails recipeId={recipeId} />
         </InnerContainer>
       </Container>
     </>

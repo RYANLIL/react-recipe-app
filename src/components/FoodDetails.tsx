@@ -1,3 +1,7 @@
-export default function FoodDetails() {
-  return <div>FOod DetaLS</div>;
+interface IFoodDetails {
+  recipeId: number;
+}
+export default function FoodDetails({ recipeId }: IFoodDetails) {
+  console.log(`From Food details ${recipeId}`);
+  return <div>food details {recipeId}</div>;
 }
