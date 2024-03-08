@@ -3,11 +3,11 @@ import * as constants from "../constants";
 import { ComplexSearchResults } from "../models/recipes/complexSearch";
 import styles from "./search.module.css";
 interface ISearchProps {
-  foodData: object;
+  //foodData: object;
   setFoodData: React.Dispatch<React.SetStateAction<ComplexSearchResults[]>>;
 }
 
-export default function Search({ foodData, setFoodData }: ISearchProps) {
+export default function Search({ setFoodData }: ISearchProps) {
   const [query, setQuery] = useState("pizza");
   //syntax of the useEffect hook
   //useEffect(()=>,[]);
@@ -21,7 +21,6 @@ export default function Search({ foodData, setFoodData }: ISearchProps) {
 
       await constants.wait(500);
       setFoodData(constants.dataRecipe.results);
-      console.log(foodData);
     }
     fetchFood();
   }, [query]);
@@ -35,10 +34,6 @@ export default function Search({ foodData, setFoodData }: ISearchProps) {
         onChange={(e) => setQuery(e.target.value)}
       />
       <button>Search</button>
-      {/* {foodData.map((food) => {
-        console.log(food);
-        return <h1>{food.title}</h1>;
-      })} */}
     </div>
   );
 }
