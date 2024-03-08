@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import * as constants from "../constants";
 import { ComplexSearchResults } from "../models/recipes/complexSearch";
+import styles from "./search.module.css";
 interface ISearchProps {
   foodData: object;
   setFoodData: React.Dispatch<React.SetStateAction<ComplexSearchResults[]>>;
@@ -26,8 +27,9 @@ export default function Search({ foodData, setFoodData }: ISearchProps) {
   }, [query]);
 
   return (
-    <div>
+    <div className={styles.searchContainer}>
       <input
+        className={styles.input}
         type="text"
         placeholder="Search"
         onChange={(e) => setQuery(e.target.value)}
