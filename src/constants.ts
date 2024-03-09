@@ -4,7 +4,7 @@ import { RecipeInformation } from "./models/recipes/recipeInformation";
 
 //Constants
 export const API_URL = "https://api.spoonacular.com";
-export const API_KEY = import.meta.env.VITE_SPOON_API_KEY;
+export const API_KEY = import.meta.env.VITE_SPOON_API_KEY; //API KEY FROM .env file
 
 export const dataRecipe = {
   offset: 0,

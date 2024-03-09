@@ -12,17 +12,18 @@ export default function Search({ setFoodData }: ISearchProps) {
   //syntax of the useEffect hook
   //useEffect(()=>,[]);
   useEffect(() => {
-    async function fetchFood() {
+    async function fetchFood(query: string) {
       //   const res = await fetch(
       //     `${constants.API_URL}/recipes/complexSearch?query=${query}`
       //   );
       //   const data = await res.json(); //res is a promise
       //   setFoodData(data.results);
-
-      await constants.wait(500);
+      console.log(query);
+      //await constants.wait(500);
       setFoodData(constants.dataRecipe.results);
     }
-    fetchFood();
+    fetchFood(query);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   return (

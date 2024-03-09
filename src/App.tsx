@@ -9,7 +9,7 @@ import InnerContainer from "./components/InnerContainer";
 import FoodDetails from "./components/FoodDetails";
 function App() {
   const [foodData, setFoodData] = useState<ComplexSearchResults[]>([]);
-  const [recipeId, setRecipeId] = useState<number>(-1);
+  const [recipeId, setRecipeId] = useState<number>(715538);
 
   return (
     <>
