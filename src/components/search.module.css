@@ -1,7 +1,8 @@
 .searchContainer {
   margin: 20px auto;
-  width: 300px;
+  width: 500px;
   position: relative;
+  text-align: center;
 }
 .input {
   border: none;
@@ -10,4 +11,16 @@
   outline: none;
   font-size: 16px;
   color: #393e46;
+  background-color: #ffd596;
+}
+
+.itemButton {
+  background-color: #ffd596;
+  border: none;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 10px;
 }

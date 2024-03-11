@@ -19,6 +19,7 @@
   font-size: 1em;
   font-weight: 600;
   color: #393e46;
+  max-height: 300px;
 }
 
 .itemButton {

@@ -18,7 +18,7 @@ export class RecipeInformation {
   license: string;
   sourceName: string;
   pricePerServing: number;
-  extendedIngredients: Ingredients[];
+  extendedIngredients: Ingredient[];
   id: number;
   title: string;
   readyInMinutes: number;
@@ -37,13 +37,13 @@ export class RecipeInformation {
     productMatches: [];
   };
   instructions: string;
-  analyzedInstructions: [];
+  analyzedInstructions: AnalyzedInstructions[];
   originalId: null;
   spoonacularScore: number;
   spoonacularSourceUrl: string;
 }
 
-export class Ingredients {
+export class Ingredient {
   id: number;
   aisle: string;
   image: string;
@@ -67,4 +67,34 @@ export class Ingredients {
       unitLong: string;
     };
   };
+}
+
+export class AnalyzedInstructions {
+  name: string;
+  steps: [
+    {
+      number: number;
+      step: string;
+      ingredients: [
+        {
+          id: number;
+          name: string;
+          localizedName: string;
+          image: string;
+        }
+      ];
+      equipment: [
+        {
+          id: number;
+          name: string;
+          localizedName: string;
+          image: string;
+        }
+      ];
+      length: {
+        number: number;
+        unit: string;
+      };
+    }
+  ];
 }

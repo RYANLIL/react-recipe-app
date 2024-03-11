@@ -8,33 +8,71 @@ interface ISearchProps {
 }
 
 export default function Search({ setFoodData }: ISearchProps) {
-  const [query, setQuery] = useState("pizza");
-  //syntax of the useEffect hook
-  //useEffect(()=>,[]);
-  useEffect(() => {
-    async function fetchFood(query: string) {
-      //   const res = await fetch(
-      //     `${constants.API_URL}/recipes/complexSearch?query=${query}`
-      //   );
-      //   const data = await res.json(); //res is a promise
-      //   setFoodData(data.results);
-      console.log(query);
-      //await constants.wait(500);
+  const [query, setQuery] = useState("Pasta");
+  //const URL = `${constants.API_URL}/recipes/complexSearch?apiKey=${constants.API_KEY}`;
+  const URL = `${constants.API_URL}/recipes/complexSearch?}`;
+
+  async function fetchFood(e: React.FormEvent<HTMLElement>, query: string) {
+    e.preventDefault();
+    const toSearch = query.toLowerCase();
+    if (toSearch === "pasta") {
       setFoodData(constants.dataRecipe.results);
+      console.log("Searched Pasta");
+    } else if (toSearch === "pizza") {
+      setFoodData(constants.dataRecipePizza.results);
+      console.log("Searched Pizza");
+    } else if (toSearch === "pancake") {
+      setFoodData(constants.dataRecipePancake.results);
+      console.log("Searched Pancake");
+    } else {
+      try {
+        const res = await fetch(
+          `${URL}&query=${query}&apiKey=${constants.API_KEY}`
+        );
+        if (!res.ok) {
+          const message = await res.json();
+          throw Error(message.message);
+        }
+        const data = await res.json(); //res is a promise
+        setFoodData(data.results);
+        console.log(data);
+        console.log(res);
+      } catch (e) {
+        console.error(e);
+      }
+      console.log(query);
     }
-    fetchFood(query);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query]);
+  }
 
   return (
-    <div className={styles.searchContainer}>
-      <input
-        className={styles.input}
-        type="text"
-        placeholder="Search"
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button>Search</button>
-    </div>
+    <form onSubmit={(e) => fetchFood(e, query)}>
+      <div className={styles.searchContainer}>
+        <input
+          className={styles.input}
+          type="text"
+          placeholder="Search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button className={styles.itemButton}>🔍</button>
+      </div>
+    </form>
   );
+
+  /**useEffect */
+  //const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // const handleResize = () => {
+  //   setWindowWidth(window.innerWidth);
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("resize", handleResize);
+  //   //the return function is called when the component is done is clean up
+  //   return () => {
+  //     // run clean up of any manually added event listeners
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []); //empty dependency array means useEffect only runs onMount.
+
+  // return <div>{windowWidth}</div>;
 }
