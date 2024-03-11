@@ -1,13 +1,13 @@
 export class RecipeInformation {
-  vegetarian: false;
-  vegan: false;
-  glutenFree: false;
-  dairyFree: false;
-  veryHealthy: false;
-  cheap: false;
-  veryPopular: false;
-  sustainable: false;
-  lowFodmap: false;
+  vegetarian: boolean;
+  vegan: boolean;
+  glutenFree: boolean;
+  dairyFree: boolean;
+  veryHealthy: boolean;
+  cheap: boolean;
+  veryPopular: boolean;
+  sustainable: boolean;
+  lowFodmap: boolean;
   weightWatcherSmartPoints: number;
   gaps: string;
   preparationMinutes: number;

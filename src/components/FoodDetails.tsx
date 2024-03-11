@@ -31,6 +31,9 @@ export default function FoodDetails({ recipeId }: IFoodDetails) {
         case 654959:
           setRecipeInfo(constants.recipe_654959);
           break;
+        case 716300:
+          setRecipeInfo(constants.recipe_716300);
+          break;
         default:
           {
             try {
